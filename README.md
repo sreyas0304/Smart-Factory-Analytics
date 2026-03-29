@@ -188,8 +188,8 @@ The `IaC/deploy.sh` script deploys 5 CloudFormation stacks in order:
 
 | Step | Stack | Template | Description |
 |------|-------|----------|-------------|
-| 1 | `01-storage-state` | `01-storage-state.yaml` | S3, DynamoDB, SQS |
-| 2 | `02-streaming-core` | `02-streaming-core.yaml` | Kinesis Data Streams |
+| 1 | `01-storage-state` | `01-storage-state.yaml` | S3, DynamoDB |
+| 2 | `02-streaming-core` | `02-streaming-core.yaml` | Kinesis Data Streams, SQS |
 | 3 | `03-cold-path` | `03-cold-path.yaml` | Lambda + Firehose |
 | 4 | `04-hot-path` | `04-hot-path.yaml` | Flink application |
 | 5 | `05-analytics` | `05-analytics.yaml` | Glue & Athena |
