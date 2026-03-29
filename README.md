@@ -22,7 +22,7 @@ The pipeline implements the industry-standard **Lambda Architecture** pattern, b
 * **Real-Time Stream Processing:** Amazon Managed Apache Flink (SQL), Amazon DynamoDB
 * **Routing & Storage:** AWS Lambda, Amazon Kinesis Firehose, Amazon S3
 * **Lakehouse Processing:** Databricks (Unity Catalog, Auto Loader, Delta Lake, CDF)
-* **Resilience:** Amazon SQS (Dead Letter Queues) acting as the data lake's immune system[cite: 64], Slack Webhooks for workflow alerting.
+* **Resilience:** Amazon SQS (Dead Letter Queues) acting as the data lake's immune system.
 
 ---
 
