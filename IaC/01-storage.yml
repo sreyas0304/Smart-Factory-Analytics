@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Smart Factory Storage & State Layer
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, prod]
+
+Resources:
+  TelemetryDataLake:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "smart-factory-analytics-${Environment}-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  FactoryMachineStateTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "FactoryMachineState-${Environment}"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: "device_id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "device_id"
+          KeyType: "HASH"
+
+Outputs:
+  DataLakeBucketArn:
+    Description: ARN of the S3 Data Lake
+    Value: !GetAtt TelemetryDataLake.Arn
+    Export:
+      Name: !Sub "${AWS::StackName}-DataLakeArn"
