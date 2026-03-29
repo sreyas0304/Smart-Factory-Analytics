@@ -5,12 +5,11 @@
 ![Apache Flink](https://img.shields.io/badge/Apache_Flink-E6526F?style=for-the-badge&logo=apacheflink&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
-## 📖 Executive Summary
-This repository contains the Infrastructure as Code (IaC), streaming SQL, and Databricks data engineering pipelines for the Smart Factory Telemetry system at Tessolve Semiconductor Inc. 
+## 📖 Executive Summary 
 
-[cite_start]The pipeline implements the industry-standard **Lambda Architecture** pattern [cite: 16][cite_start], built primarily on Amazon Web Services (AWS)[cite: 4]. It captures real-time IoT telemetry from manufacturing equipment (CNCs, Conveyors) and routes it through two parallel tracks:
-* **Speed Layer (Hot Path):** Delivers sub-second operational insights to live web dashboards via Apache Flink and Amazon DynamoDB[cite: 6].
-* **Batch Layer (Cold Path):** Archives immutable, clean telemetry data [cite: 7] into an S3 Data Lake, processed into a highly optimized Medallion Architecture using Databricks Lakehouse.
+The pipeline implements the industry-standard **Lambda Architecture** pattern, built primarily on Amazon Web Services (AWS). It captures real-time IoT telemetry from manufacturing equipment (CNCs, Conveyors) and routes it through two parallel tracks:
+* **Speed Layer (Hot Path):** Delivers sub-second operational insights to live web dashboards via Apache Flink and Amazon DynamoDB.
+* **Batch Layer (Cold Path):** Archives immutable, clean telemetry data into an S3 Data Lake, processed into a highly optimized Medallion Architecture using Databricks Lakehouse.
 
 ---
 
