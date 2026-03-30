@@ -110,7 +110,6 @@ Smart-Factory-Analytics/
 │   ├── 04-hot-path.yml            # Flink application (placeholder)
 │   ├── 05-analytics.yml           # Glue & Athena (placeholder)
 │   └── deploy.sh                  # Ordered 5-stack deployment script
-├── tests/                         # Test suite (empty)
 ├── .env.example                   # Environment variable template
 ├── .gitignore
 ├── LICENSE                        # MIT
