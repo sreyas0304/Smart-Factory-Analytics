@@ -28,10 +28,6 @@ logs/
 *.swo
 *~
 
-# ── OS artifacts ─────────────────────────────────────────────────────────────
-.DS_Store
-Thumbs.db
-desktop.ini
 
 # ── Jupyter ──────────────────────────────────────────────────────────────────
 .ipynb_checkpoints/
@@ -40,7 +36,3 @@ desktop.ini
 .aws/credentials
 .aws/config
 
-# ── Terraform (future-proofing) ──────────────────────────────────────────────
-*.tfstate
-*.tfstate.backup
-.terraform/
