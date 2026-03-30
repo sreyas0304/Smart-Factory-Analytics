@@ -51,18 +51,9 @@ The `SensorReading` dataclass defines the telemetry payload:
 | `zone` | `str` | `zone-A` \| `zone-B` \| `zone-C` |
 | `shift` | `str` | `morning` \| `afternoon` \| `night` |
 | `event_time` | `str` | ISO 8601 device clock timestamp |
-| `publish_time` | `str` | ISO 8601 wall clock at publish |
-| `sequence_number` | `int` | Per-device monotonic counter |
-| `vibration_x` | `float` | CNC: X-axis vibration (g) |
-| `vibration_y` | `float` | CNC: Y-axis vibration (g) |
-| `spindle_rpm` | `float` | CNC: spindle speed |
-| `tool_wear_pct` | `float` | CNC: tool wear percentage |
-| `belt_speed_mps` | `float` | Conveyor: belt speed (m/s) |
+| `vibration` | `float` | CNC: vibration (g) |
 | `motor_current_amps` | `float` | Conveyor: motor current (A) |
 | `temperature_c` | `float` | Temperature: ambient temp (C) |
-| `humidity_pct` | `float` | Temperature: relative humidity (%) |
-| `is_malformed` | `bool` | Deliberately bad payload flag |
-| `was_buffered` | `bool` | True for out-of-order events |
 
 ---
 
