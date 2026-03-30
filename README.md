@@ -30,7 +30,7 @@ The pipeline implements the industry-standard **Lambda Architecture** pattern, b
 
 ## Data Flow
 
-1. **Ingest** — 100 simulated devices (50 CNC + 20 Conveyor + 30 Temperature) publish readings to Kinesis Data Streams, partitioned by zone (`zone-A`, `zone-B`, `zone-C`).
+1. **Ingest** — Devices simulate publish readings to Kinesis Data Streams, partitioned by zone (`zone-A`, `zone-B`, `zone-C`).
 2. **Hot Path** — Amazon Managed Apache Flink runs SQL with 1-minute tumbling and 5-minute hopping windows, writing aggregated results to DynamoDB for live dashboards.
 3. **Cold Path** — An AWS Lambda consumer validates each record and routes it to one of 3 Kinesis Firehose delivery streams (`cnc`, `conveyor`, `temperature`) for S3 storage. Malformed or unroutable records are sent to an SQS Dead Letter Queue.
 4. **Bronze** — Databricks Auto Loader incrementally ingests raw JSON from S3 into Delta tables with schema evolution.
@@ -110,7 +110,6 @@ Smart-Factory-Analytics/
 │   ├── 04-hot-path.yml            # Flink application (placeholder)
 │   ├── 05-analytics.yml           # Glue & Athena (placeholder)
 │   └── deploy.sh                  # Ordered 5-stack deployment script
-├── tests/                         # Test suite (empty)
 ├── .env.example                   # Environment variable template
 ├── .gitignore
 ├── LICENSE                        # MIT
@@ -188,8 +187,8 @@ The `IaC/deploy.sh` script deploys 5 CloudFormation stacks in order:
 
 | Step | Stack | Template | Description |
 |------|-------|----------|-------------|
-| 1 | `01-storage-state` | `01-storage-state.yaml` | S3, DynamoDB, SQS |
-| 2 | `02-streaming-core` | `02-streaming-core.yaml` | Kinesis Data Streams |
+| 1 | `01-storage-state` | `01-storage-state.yaml` | S3, DynamoDB |
+| 2 | `02-streaming-core` | `02-streaming-core.yaml` | Kinesis Data Streams, SQS |
 | 3 | `03-cold-path` | `03-cold-path.yaml` | Lambda + Firehose |
 | 4 | `04-hot-path` | `04-hot-path.yaml` | Flink application |
 | 5 | `05-analytics` | `05-analytics.yaml` | Glue & Athena |
