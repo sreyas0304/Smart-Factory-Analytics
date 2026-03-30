@@ -16,7 +16,7 @@ The pipeline implements the industry-standard **Lambda Architecture** pattern, b
 
 ## Architecture Overview
 
-![Smart Factory Architecture](./docs/data-pipeline.png)
+![Smart Factory Architecture](./docs/pipeline-arch.png)
 
 ### Core Technology Stack
 
