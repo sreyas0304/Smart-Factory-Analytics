@@ -155,9 +155,6 @@ All variables with defaults can be found in `.env.example`.
 | `AWS_SECRET_ACCESS_KEY` | — | Yes | IAM secret key |
 | `AWS_REGION` | `us-east-1` | No | AWS region for Kinesis |
 | `KINESIS_STREAM_NAME` | `smart-factory-telemetry` | No | Target Kinesis stream |
-| `LOG_LEVEL` | `INFO` | No | Logging level (`DEBUG` shows every record) |
-| `LOG_TO_FILE` | `true` | No | Enable file logging |
-| `LOG_FILE_PATH` | `logs/simulator.log` | No | Log file location |
 
 ### Cold Path Lambda (`lambda_function.py`)
 
